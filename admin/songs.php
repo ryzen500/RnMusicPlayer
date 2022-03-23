@@ -212,6 +212,7 @@
                   <thead class="">
                     <th> No </th>
                     <th> Genre </th>
+                    <th>Aksi</th>
                     </thead>
                   <?php include "config.php"; 
                   
@@ -227,6 +228,9 @@
       <tr>
         <td> <?php echo  $nomer++;  ?> </td>
         <td> <?php echo $genres['name']; ?> </td>
+        
+       <td><a href="#"><button onclick="return alert('TODO ')">Edit</button></a></td>
+       <td><a href="#"><button onclick="return alert('TODO ')">Hapus</button></a></td>
 
       </tr>
     </tbody>
