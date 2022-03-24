@@ -170,7 +170,7 @@
      <th>Aksi</th>
    </thead>
                   <?php include "config.php";
-                    $query =mysqli_query($con, "SELECT s.title,g.name as genre,a.name,al.title as album FROM `songs` as s INNER JOIN artists AS a ON s.artist =a.id INNER JOIN albums as al ON s.album = al.id INNER JOIN genres as g ON s.genre =g.id;");
+                    $query =mysqli_query($con, "SELECT s.id,s.title,g.name as genre,a.name,al.title as album FROM `songs` as s INNER JOIN artists AS a ON s.artist =a.id INNER JOIN albums as al ON s.album = al.id INNER JOIN genres as g ON s.genre =g.id;");
                     $nomor = 1;
                     while($datas = mysqli_fetch_array($query)){
 // var_dump($datas);
@@ -185,7 +185,7 @@
        <td> <?php  echo $datas['album'];?> </td>
        <td class="text-primary"> <?php echo $datas['genre'];?> </td>
        <td><a href="#"><button onclick="return alert('TODO ')">Edit</button></a></td>
-       <td><a href="#"><button onclick="return alert('TODO ')">Hapus</button></a></td>
+       <td><a href="deletedMusic.php?id=<?php echo $datas['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus Lagu ? ')">Hapus</button></a></td>
 
        <!-- <td class="text-primary"> $36,738 </td> -->
 
@@ -230,7 +230,7 @@
         <td> <?php echo $genres['name']; ?> </td>
         
        <td><a href="#"><button onclick="return alert('TODO ')">Edit</button></a></td>
-       <td><a href="#"><button onclick="return alert('TODO ')">Hapus</button></a></td>
+       <td><a href="genreDelete.php?id=<?php echo$genres['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus')">Hapus</button></a></td>
 
       </tr>
     </tbody>
