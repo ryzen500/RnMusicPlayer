@@ -3,16 +3,10 @@ include "config.php";
 
 if(isset($_POST['submit'])){
 	$id = $_GET['id'];
-	$status =$_POST['status'];
-	$username =$_POST['username'];
-	$email =$_POST['email'];
-	$firstName =$_POST['firstName'];
-	$lastName =$_POST['lastName'];
-    $password =md5($_POST['password']);
-	$profilePic = 'assets/images/profile-pics/head_emerald.png';
-	$signUpDate = date('Y-m-d H:i:s');
+    $name = $_POST['name'];
+    $signUpDate = date('Y-m-d H:i:s');
 	
-			$sql = "UPDATE `users` SET username='$username', firstName='$firstName', lastName = '$lastName',  email='$email', `password`='$password', status='$status' WHERE id ='$id'";
+			$sql = "UPDATE `genres` SET `name`='$name', `datetime`='$signUpDate'  WHERE `id` ='$id'";
 			$query2 =mysqli_query($con,$sql);
 			// var_dump($sql);
 			if($query2){

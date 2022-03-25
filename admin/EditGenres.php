@@ -178,22 +178,28 @@ else {
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Add Genre</h4>
-                  <p class="card-category">Add New Genre</p>
+                  <h4 class="card-title">Edit Genre</h4>
+                  <p class="card-category">Edit Genre</p>
                 </div>
                 <div class="card-body">
-                  <form action="../processingGenre.php" method="POST"  enctype="multipart/form-data">
+                    <?php  
+                    $id= $_GET['id'];
+                    include 'config.php'; 
+                    $sql= mysqli_query($con, "SELECT * FROM genres WHERE id='$id'");
+                    $datas= mysqli_fetch_assoc($sql);
+                    ?>
+                  <form action="procesEditGenres.php?id=<?php  echo $datas["id"]?>" method="POST"  enctype="multipart/form-data">
                    
 
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Masukkan Genre Music </label>
-                          <input type="text" class="form-control" name="name" >
+                          <input type="text" class="form-control" name="name" value="<?php echo $datas['name'];?>" >
                         </div>
                       </div>
                      
-                    <button type="submit" class="btn btn-primary pull-right" name="submit">Update Profile</button>
+                    <button type="submit" class="btn btn-primary pull-right" name="submit">Update Genre</button>
                     <div class="clearfix"></div>
                   </form>
                   <?//php } ?>
