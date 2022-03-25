@@ -4,7 +4,7 @@ include "config.php";
 if(isset($_POST['submit'])){
 	$id = $_GET['id'];
     $name = $_POST['name'];
-    $signUpDate = date('Y-m-d H:i:s');
+    $signUpDate = date('Y-m-d');
 	
 			$sql = "UPDATE `genres` SET `name`='$name', `datetime`='$signUpDate'  WHERE `id` ='$id'";
 			$query2 =mysqli_query($con,$sql);

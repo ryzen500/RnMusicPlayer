@@ -3,9 +3,9 @@ include "includes/config.php";
 
 if(isset($_POST['submit'])){
 	$name =$_POST['name'];
-
+	$datetime = date('Y-m-d');
 	// Creating Query 
-	$sql = "INSERT INTO  genres (name) VALUES ('$name')";
+	$sql = "INSERT INTO  genres (name, datetime) VALUES ('$name','$datetime')";
 
 	$query = mysqli_query($con, $sql);
 
@@ -14,6 +14,7 @@ if(isset($_POST['submit'])){
 	if ($query) {
 		# code...
 		echo "<script>alert('Berhasil Tambah Genre')</script>";
+		echo "<script>window.history.back();</script>";
 	}else {
 		echo "<script>alert('gagal Tambah Genre')</script>";
 		
