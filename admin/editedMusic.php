@@ -178,22 +178,105 @@ else {
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Add Genre</h4>
-                  <p class="card-category">Add New Genre</p>
+                  <h4 class="card-title">Add Music</h4>
+                  <!-- <p class="card-category">Complete your profile</p> -->
                 </div>
                 <div class="card-body">
-                  <form action="../processingGenre.php" method="POST"  enctype="multipart/form-data">
-                   
+                <?php  
+                    $id= $_GET['id'];
+                    include 'config.php'; 
+                    $sql= mysqli_query($con, "SELECT s.*,art.name as artist_name, al.title as album_name ,g.name as genre_name FROM `songs` as s INNER JOIN artists as art ON s.artist = art.id INNER JOIN albums as al ON s.album=al.id INNER JOIN genres as g ON s.genre=g.id WHERE s.id ='$id'  ");
+                    $lalas= mysqli_fetch_assoc($sql);
+                    // var_dump($id)
+                    ?>
+
+                  <form action="processingEditMusic.php?id=<?php echo $id; ?>" method="POST"  enctype="multipart/form-data">
+                    <?php
+                     $show =mysqli_query($con, "SELECT * FROM artists");
+                     $albums =mysqli_query($con, "SELECT * FROM albums");
+                    $genres = mysqli_query($con, "SELECT * FROM genres");
+                      # code...
+                    
+                    ?>
+
 
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Masukkan Genre Music </label>
-                          <input type="text" class="form-control" name="name" >
+                          <label class="bmd-label-floating">Title </label>
+                          <input type="text" class="form-control" name="title" value="<?php echo  $lalas['title']; ?>" >
                         </div>
                       </div>
-                     
-                    <button type="submit" class="btn btn-primary pull-right" name="submit">Update Profile</button>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Masukkan Nama Artist</label>
+  
+                          <select class="form-select" name="artist">
+                          <option value="<?php echo $lalas['artist']; ?>"> <?php echo $lalas['artist_name']; ?></option>
+
+<?php                     while ($datas =mysqli_fetch_array($show)) {
+?>
+                           
+                            <option value="<?php echo $datas['id']; ?>" ><?php echo $datas['name'];?></option>
+                            <?php } ?>
+
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Masukkan Album </label>
+                          <select class="form-select" name="album">
+                          <option value="<?php echo $lalas['album']; ?>"><?php echo $lalas['album_name']; ?></option>
+
+<?php                     while ($datas =mysqli_fetch_array($albums)) {
+?>
+                           
+                            <option value="<?php echo $datas['id']; ?>" ><?php echo $datas['title'];?></option>
+                            <?php } ?>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Genre</label>
+                          <select class="form-select" name="genre">
+                          <option value="<?php echo $lalas['genre']; ?>"><?php echo $lalas['genre_name']; ?></option>
+
+<?php                     while ($datas =mysqli_fetch_array($genres)) {
+?>
+                           
+                            <option value="<?php echo $datas['id']; ?>" ><?php echo $datas['name'];?></option>
+                            <?php } ?>
+
+                          </select>                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Duration</label>
+                          <input type="text" class="form-control" name="duration" value="<?php echo $lalas['duration']; ?>" placeholder="Masukan Durasi Musik yang diupload (Ex:03:40)">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                      <div class="mb-3">
+  <label for="formFile" class="form-label">File Music Yang ingin Dimasukkan</label>
+  <input class="form-control" type="file" name="path" id="formFile" value="<?php echo $lalas['path'];?>">
+</div>
+                      </div>
+                    </div>
+             
+                    <div class="row">
+                      <div class="col-md-12">
+                        
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right" name="submit">Simpan Music</button>
                     <div class="clearfix"></div>
                   </form>
                   <?//php } ?>

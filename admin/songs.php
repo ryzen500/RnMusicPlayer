@@ -184,7 +184,7 @@
        <td> <?php  echo $datas['name']; ?> </td>
        <td> <?php  echo $datas['album'];?> </td>
        <td class="text-primary"> <?php echo $datas['genre'];?> </td>
-       <td><a href="#"><button onclick="return alert('TODO ')">Edit</button></a></td>
+       <td><a href="editedMusic.php?id=<?php echo $datas['id'];?>"><button class="btn btn-primary" onclick="return confirm('Apakah Anda Ingin Merubah Data')">Edit</button></a></td>
        <td><a href="deletedMusic.php?id=<?php echo $datas['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus Lagu ? ')">Hapus</button></a></td>
 
        <!-- <td class="text-primary"> $36,738 </td> -->
@@ -229,7 +229,7 @@
         <td> <?php echo  $nomer++;  ?> </td>
         <td> <?php echo $genres['name']; ?> </td>
         
-       <td><a href="#"><button onclick="return alert('TODO ')">Edit</button></a></td>
+       <td><a href="EditGenres.php?id=<?php echo $genres['id']; ?>"><button class="btn btn-primary" onclick="return confirm('Apakah Anda Ingin Merubah Data')">Edit</button></a></td>
        <td><a href="genreDelete.php?id=<?php echo$genres['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus')">Hapus</button></a></td>
 
       </tr>
