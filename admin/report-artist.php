@@ -170,7 +170,7 @@ function popup(form) {
                   <h2>Report</h2>
                 </div>
                 <div class="row">
-              <form onsubmit="popup(this);" target="_blank" method="post" action="tampil.php">
+              <form onsubmit="popup(this);" target="_blank" method="post" action="tampil-artist.php">
 
               <input type="date" name="dari" class="form-control float-right" id="reservation">
         <input type="date" name="sampai" class="form-control float-right" id="reservation">
@@ -182,9 +182,10 @@ function popup(form) {
                   <thead class=" text-primary">
      <th> No </th>
      <th> Artist </th>
+     <th> Tanggal </th>
    </thead>
                   <?php include "config.php";
-                    $query =mysqli_query($con, "SELECT name FROM artists");
+                    $query =mysqli_query($con, "SELECT name, date FROM artists");
                     $nomor = 1;
                     while($datas = mysqli_fetch_array($query)){
 // var_dump($datas);
@@ -195,6 +196,7 @@ function popup(form) {
      <tr>
        <td> <?php  echo $nomor++; ?> </td>
        <td> <?php  echo $datas['name']; ?> </td>
+       <td> <?php  echo $datas['date']; ?> </td>
 
        <!-- <td class="text-primary"> $36,738 </td> -->
 
