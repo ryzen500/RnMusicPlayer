@@ -1,3 +1,11 @@
+<?php
+echo "<script>
+function popup(form) {
+ window.open('', 'cetak', 'menubar=yes,scrollbars=yes,resizable=yes,width=800,height=400,top=50,left=200');
+ form.target = 'cetak';
+}
+</script>";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,51 +15,51 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-        Admin RnMusicPlayer
-  </title>
+   Admin  RnMusicPlayer
+   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- CSS Files -->
-  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link href="./assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="assets/demo/demo.css" rel="stylesheet" />
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="dark-edition">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="./assets/img/sidebar-2.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-
-
-    <div class="logo"><a href="" class="simple-text logo-normal">
-          RnMusicPlayer
-        </a></div>
+      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          RnMusicPlayer 
+               </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="index.php">
+            <a class="nav-link" href="./index.php">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="profile.php" style="cursor: pointer;">
+            <a class="nav-link" href="./profile.php">
               <i class="material-icons">person</i>
-              <p>Your Profile</p>
+              <p>User Profile</p>
             </a>
           </li>
-          <li class="nav-item  active ">
-            <a class="nav-link" href="songs.php">
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="./tables.html">
               <i class="material-icons">content_paste</i>
-              <p>Song List</p>
+              <p>Table List</p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item ">
             <a class="nav-link" href="./typography.php">
               <i class="material-icons">library_books</i>
@@ -64,7 +72,7 @@
               <p>Album Report</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="./report-artist.php">
               <i class="material-icons">library_books</i>
               <p> Artist Report</p>
@@ -85,14 +93,12 @@
         </ul>
       </div>
     </div>
-
-
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Songs List</a>
+            <a class="navbar-brand" href="javascript:void(0)">Song Report</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -101,7 +107,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
+            <form class="navbar-form" >
               <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <button type="submit" class="btn btn-default btn-round btn-just-icon">
@@ -149,28 +155,41 @@
       </nav>
       <!-- End Navbar -->
       <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Songs List</h4>
-                  <p class="card-category"> All Of Your List Music</p>
-                  <a href="addMusic.php"><button class="btn btn-success">Upload Music</button></a>
+        
+      <div class="container-fluid">
+        
+        <div class="card">
+          
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">User Report</h4>
+              <p class="card-category">User Data report </p>
+            </div>
+            <div class="card-body">
+              <div id="Song Report">
+                <div class="card-title">
+                  <h2>Report</h2>
                 </div>
-                <div class="card-body">
-                  <div class="table-responsive">
+                <div class="row">
+              <form onsubmit="popup(this);" target="_blank" method="post" action="tampil-user.php">
+
+              <input type="date" name="dari" class="form-control float-right" id="reservation">
+        <input type="date" name="sampai" class="form-control float-right" id="reservation">
+        <button type="submit" name="cetak" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Cetak</button>
+
+      
+              <div class="table-responsive">
                   <table class="table">
                   <thead class=" text-primary">
      <th> No </th>
-     <th> Title </th>
-     <th> Artist </th>
-     <th> Album </th>
-     <th> Genre </th>
-     <th>Aksi</th>
+     <th> Profile Picture </th>
+     <th> Username </th>
+     <th> First Name </th>
+     <th> Last Name </th>
+     <th> Email </th>
+     <th> Sign Up Date </th>
    </thead>
                   <?php include "config.php";
-                    $query =mysqli_query($con, "SELECT s.id,s.title,g.name as genre,a.name,al.title as album FROM `songs` as s INNER JOIN artists AS a ON s.artist =a.id INNER JOIN albums as al ON s.album = al.id INNER JOIN genres as g ON s.genre =g.id;");
+                    $query =mysqli_query($con, "SELECT username, firstName, lastName, email, signUpDate,profilePic FROM users");
                     $nomor = 1;
                     while($datas = mysqli_fetch_array($query)){
 // var_dump($datas);
@@ -180,12 +199,12 @@
    <tbody>
      <tr>
        <td> <?php  echo $nomor++; ?> </td>
-       <td> <?php echo $datas["title"]; ?> </td>
-       <td> <?php  echo $datas['name']; ?> </td>
-       <td> <?php  echo $datas['album'];?> </td>
-       <td class="text-primary"> <?php echo $datas['genre'];?> </td>
-       <td><a href="editedMusic.php?id=<?php echo $datas['id'];?>"><button class="btn btn-primary" onclick="return confirm('Apakah Anda Ingin Merubah Data')">Edit</button></a></td>
-       <td><a href="deletedMusic.php?id=<?php echo $datas['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus Lagu ? ')">Hapus</button></a></td>
+       <td> <?php  echo $datas['profilePic']; ?> </td>
+       <td> <?php  echo $datas['username']; ?> </td>
+       <td> <?php  echo $datas['firstName']; ?> </td>
+       <td> <?php  echo $datas['lastName']; ?> </td>
+       <td> <?php  echo $datas['email']; ?> </td>
+       <td> <?php  echo $datas['signUpDate']; ?> </td>
 
        <!-- <td class="text-primary"> $36,738 </td> -->
 
@@ -194,53 +213,13 @@
    <?php } ?>
  </table>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="card card-plain">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title mt-0"> Table Genre</h4>
-                  <p class="card-category"> Genre  Yang dimasukkan</p>
-                  <a href="addGenre.php"><button class="btn btn-success">Add Genre</button></a>
-
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                  <table class="table table-hover">
-
-                  <thead class="">
-                    <th> No </th>
-                    <th> Genre </th>
-                    <th>Aksi</th>
-                    </thead>
-                  <?php include "config.php"; 
-                  
-                  $query = mysqli_query($con, "SELECT * FROM genres");
-                  $nomer =1;
-                  while ($genres = mysqli_fetch_array($query)) {
-                      # code...
-                  
-                  ?>
-
-
-    <tbody>
-      <tr>
-        <td> <?php echo  $nomer++;  ?> </td>
-        <td> <?php echo $genres['name']; ?> </td>
-        
-       <td><a href="EditGenres.php?id=<?php echo $genres['id']; ?>"><button class="btn btn-primary" onclick="return confirm('Apakah Anda Ingin Merubah Data')">Edit</button></a></td>
-       <td><a href="genreDelete.php?id=<?php echo$genres['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus')">Hapus</button></a></td>
-
-      </tr>
-    </tbody>
-    <?php }?>
-  </table>
-                  </div>
+         
+              </form>    
+             
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    <?php include "footer.php"; ?>
+     <?php include "footer.php";

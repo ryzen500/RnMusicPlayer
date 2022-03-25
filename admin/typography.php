@@ -79,7 +79,7 @@ function popup(form) {
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./typography.php">
+            <a class="nav-link" href="./report-user.php">
               <i class="material-icons">library_books</i>
               <p>User Report</p>
             </a>
