@@ -90,7 +90,7 @@ else {
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./typography.php">
+            <a class="nav-link" href="./report-artist.php">
               <i class="material-icons">library_books</i>
               <p> Artist Report</p>
             </a>

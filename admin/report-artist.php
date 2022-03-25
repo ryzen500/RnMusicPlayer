@@ -60,7 +60,7 @@ function popup(form) {
               <p>Table List</p>
             </a>
           </li> -->
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="./typography.php">
               <i class="material-icons">library_books</i>
               <p>Song Report</p>
@@ -72,7 +72,7 @@ function popup(form) {
               <p>Album Report</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="./report-artist.php">
               <i class="material-icons">library_books</i>
               <p> Artist Report</p>
@@ -161,8 +161,8 @@ function popup(form) {
         <div class="card">
           
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Songs Report</h4>
-              <p class="card-category">Songs Data report </p>
+              <h4 class="card-title">Artist Report</h4>
+              <p class="card-category">Artist Data report </p>
             </div>
             <div class="card-body">
               <div id="Song Report">
@@ -181,13 +181,10 @@ function popup(form) {
                   <table class="table">
                   <thead class=" text-primary">
      <th> No </th>
-     <th> Title </th>
      <th> Artist </th>
-     <th> Album </th>
-     <th> Genre </th>
    </thead>
                   <?php include "config.php";
-                    $query =mysqli_query($con, "SELECT s.title,g.name as genre,a.name,al.title as album FROM `songs` as s INNER JOIN artists AS a ON s.artist =a.id INNER JOIN albums as al ON s.album = al.id INNER JOIN genres as g ON s.genre =g.id;");
+                    $query =mysqli_query($con, "SELECT name FROM artists");
                     $nomor = 1;
                     while($datas = mysqli_fetch_array($query)){
 // var_dump($datas);
@@ -197,10 +194,7 @@ function popup(form) {
    <tbody>
      <tr>
        <td> <?php  echo $nomor++; ?> </td>
-       <td> <?php echo $datas["title"]; ?> </td>
        <td> <?php  echo $datas['name']; ?> </td>
-       <td> <?php  echo $datas['album'];?> </td>
-       <td class="text-primary"> <?php echo $datas['genre'];?> </td>
 
        <!-- <td class="text-primary"> $36,738 </td> -->
 
