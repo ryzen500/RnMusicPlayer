@@ -18,7 +18,7 @@
 include "config.php";
 // $sql = "select * from songs (tgl between '$_POST[dari]' and '$_POST[sampai]')";
 // $sql = "select * from songs (time between '$_POST[dari]' and '$_POST[sampai]')";
-$sql ="select * from users WHERE date BETWEEN '$_POST[dari]' and '$_POST[sampai]'";
+$sql ="select * from users WHERE signUpDate BETWEEN '$_POST[dari]' and '$_POST[sampai]'";
 
 $query=mysqli_query($con,$sql);
 $cek = mysqli_num_rows($query);
@@ -38,9 +38,9 @@ while($r=mysqli_fetch_array($query)){
  <tbody>
  <tr>
    <td><?php echo $no++;?></td>
-   <td><?php echo $r['profilePic'];?></td>
+   <td> <img src="<?php echo $r['profilePic'];?>"></td>
    <td><?php echo $r['username'];?></td>
-   <td><?php echo $r['fisrtName'];?></td>
+   <td><?php echo $r['firstName'];?></td>
    <td><?php echo $r['lastName'];?></td>
    <td><?php echo $r['email'];?></td>
    <td><?php echo $r['signUpDate'];?></td>

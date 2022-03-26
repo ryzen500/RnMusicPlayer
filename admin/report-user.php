@@ -72,13 +72,13 @@ function popup(form) {
               <p>Album Report</p>
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="./report-artist.php">
               <i class="material-icons">library_books</i>
               <p> Artist Report</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="./report-user.php">
               <i class="material-icons">library_books</i>
               <p>User Report</p>
@@ -199,7 +199,7 @@ function popup(form) {
    <tbody>
      <tr>
        <td> <?php  echo $nomor++; ?> </td>
-       <td> <?php  echo $datas['profilePic']; ?> </td>
+       <td> <img src="<?php echo $datas['profilePic'];?>"></td>
        <td> <?php  echo $datas['username']; ?> </td>
        <td> <?php  echo $datas['firstName']; ?> </td>
        <td> <?php  echo $datas['lastName']; ?> </td>
