@@ -302,27 +302,32 @@ while ($albums = mysqli_fetch_array($query)) {
 
                         <tbody>
                         <?php  include 'config.php';
+                        $nomor =1;
                         $sql = mysqli_query($con, "SELECT m.*,us.username as name FROM `message` as m INNER JOIN users as us ON m.nama =us.id");
                         while($datas=mysqli_fetch_array($sql)){ ?>
 
                         <tr>
                             <td>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" value="" checked>
-                                  <span class="form-check-sign">
-                                    <span class="check"></span>
-                                  </span>
-                                </label>
-                              </div>
+                              <?php echo $nomor++; ?>
                             </td>
                             <td><?php echo "Pesan: ".$datas['pesan']."<br>  Dari: " .$datas['name'];?></td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
-                                <i class="material-icons">edit</i>
+
+                            <?php if ($datas['status'] == 'y') { ?>
+                              <button onclick="return alert('TODO')" class="btn btn-primary">
+                                  Edit
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-white btn-link btn-sm">
-                                <i class="material-icons">close</i>
+                              <br>
+                              <?php }else{?>
+
+                              <button  class="btn btn-danger" onclick="return alert('TODO')">
+                                  Edit
+                              </button>
+
+                              <?php }?>
+                              
+                              <button  onclick="return alert('TODO')" class="btn btn-danger">
+                                  Hapus
                               </button>
                             </td>
                           </tr>
