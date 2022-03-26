@@ -288,6 +288,56 @@
                 </div>
               </div>
   
+
+
+              <div class="col-md-12">
+              <div class="card card-plain">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title mt-0"> Table Album</h4>
+                  <p class="card-category"> Album  Yang dimasukkan</p>
+                  <a href="addAlbum.php"><button class="btn btn-success">Add Album</button></a>
+
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                  <table class="table table-hover">
+
+                  <thead class="">
+                    <th> No </th>
+                    <th> Album </th>
+                    <th>Artist</th>
+                    <th>Genre</th>
+                    <th>Aksi</th>
+                    </thead>
+                  <?php include "config.php"; 
+                  
+                  $query = mysqli_query($con, "SELECT als.title,als.date, art.name as artist,gen.name as genre FROM albums as als INNER JOIN genres as gen ON als.genre = gen.id INNER JOIN artists as art ON als.artist=art.id");
+                  $nomer =1;
+                  while ($genres = mysqli_fetch_array($query)) {
+                      # code...
+                  
+                  ?>
+
+
+    <tbody>
+      <tr>
+        <td> <?php echo  $nomer++;  ?> </td>
+        <td> <?php echo $genres['title']; ?></td>
+        <td> <?php echo $genres['artist']; ?></td>
+        <td> <?php echo $genres['genre']; ?></td>
+
+        <td><a href="EditArtist.php?id=<?php echo $genres['id']; ?>"><button class="btn btn-primary" onclick="return confirm('Apakah Anda Ingin Merubah Data')">Edit</button></a></td>
+       <td><a href="artistDelete.php?id=<?php echo$genres['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus')">Hapus</button></a></td>
+
+      </tr>
+    </tbody>
+    <?php }?>
+  </table>
+                  </div>
+                </div>
+              </div>
+  
+
             </div>
           </div>
         </div>
