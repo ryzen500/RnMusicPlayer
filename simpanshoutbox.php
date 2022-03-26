@@ -32,9 +32,10 @@ else{
 $nama = $_POST['nama'];
 // $website =$_POST['website'];
 $pesan = $_POST['pesan'];
+$status ='y';
 
-$kueri = mysqli_query($con,"INSERT INTO message(nama, pesan, tanggal, jam)
-          VALUES('$nama', '$pesan', '$tgl_sekarang','$jam_sekarang')");
+$kueri = mysqli_query($con,"INSERT INTO message(nama, pesan, tanggal, jam,status)
+          VALUES('$nama', '$pesan', '$tgl_sekarang','$jam_sekarang', '$status')");
 // var_dump($kueri);
 }
 

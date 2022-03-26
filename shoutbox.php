@@ -2,7 +2,7 @@
 include "includes/config.php";
 
 // $shoutbox=mysqli_query($con,"SELECT * FROM message WHERE status='Y' ORDER BY id DESC LIMIT 10");
-$shoutbox=mysqli_query($con,"SELECT message.id, users.username, message.status, message.pesan , message.tanggal, message.jam FROM message INNER JOIN users ON message.nama=users.id;");
+$shoutbox=mysqli_query($con,"SELECT message.id, users.username, message.status, message.pesan , message.tanggal, message.jam FROM message INNER JOIN users ON message.nama=users.id WHERE message.status='y'");
 
 while($d=mysqli_fetch_array($shoutbox)){
   $pesan = $d['pesan'];

@@ -170,7 +170,7 @@ function popup(form) {
                   <h2>Report</h2>
                 </div>
                 <div class="row">
-              <form onsubmit="popup(this);" target="_blank" method="post" action="tampil.php">
+              <form onsubmit="popup(this);" target="_blank" method="post" action="tampil-albums.php">
 
               <input type="date" name="dari" class="form-control float-right" id="reservation">
         <input type="date" name="sampai" class="form-control float-right" id="reservation">
@@ -183,11 +183,11 @@ function popup(form) {
      <th> No </th>
      <th> Title </th>
      <th> Artist </th>
-     <th> Album </th>
+     <th> Date Album </th>
      <th> Genre </th>
    </thead>
                   <?php include "config.php";
-                    $query =mysqli_query($con, "SELECT s.title,g.name as genre,a.name,al.title as album FROM `songs` as s INNER JOIN artists AS a ON s.artist =a.id INNER JOIN albums as al ON s.album = al.id INNER JOIN genres as g ON s.genre =g.id;");
+                    $query =mysqli_query($con, "SELECT als.title,als.date, art.name as artist,gen.name as genre FROM albums as als INNER JOIN genres as gen ON als.genre = gen.id INNER JOIN artists as art ON als.artist=art.id; ");
                     $nomor = 1;
                     while($datas = mysqli_fetch_array($query)){
 // var_dump($datas);
@@ -198,8 +198,8 @@ function popup(form) {
      <tr>
        <td> <?php  echo $nomor++; ?> </td>
        <td> <?php echo $datas["title"]; ?> </td>
-       <td> <?php  echo $datas['name']; ?> </td>
-       <td> <?php  echo $datas['album'];?> </td>
+       <td> <?php  echo $datas['artist']; ?> </td>
+       <td> <?php  echo $datas['date'];?> </td>
        <td class="text-primary"> <?php echo $datas['genre'];?> </td>
 
        <!-- <td class="text-primary"> $36,738 </td> -->
