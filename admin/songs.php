@@ -311,7 +311,7 @@
                     </thead>
                   <?php include "config.php"; 
                   
-                  $query = mysqli_query($con, "SELECT als.title,als.date, art.name as artist,gen.name as genre FROM albums as als INNER JOIN genres as gen ON als.genre = gen.id INNER JOIN artists as art ON als.artist=art.id");
+                  $query = mysqli_query($con, "SELECT als.id,als.title,als.date, art.name as artist,gen.name as genre FROM albums as als INNER JOIN genres as gen ON als.genre = gen.id INNER JOIN artists as art ON als.artist=art.id");
                   $nomer =1;
                   while ($genres = mysqli_fetch_array($query)) {
                       # code...
@@ -326,8 +326,8 @@
         <td> <?php echo $genres['artist']; ?></td>
         <td> <?php echo $genres['genre']; ?></td>
 
-        <td><a href="EditArtist.php?id=<?php echo $genres['id']; ?>"><button class="btn btn-primary" onclick="return confirm('Apakah Anda Ingin Merubah Data')">Edit</button></a></td>
-       <td><a href="artistDelete.php?id=<?php echo$genres['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus')">Hapus</button></a></td>
+        <td><a href="editAlbum.php?id=<?php echo $genres['id']; ?>"><button class="btn btn-primary" onclick="return confirm('Apakah Anda Ingin Merubah Data')">Edit</button></a></td>
+       <td><a href="albumDelete.php?id=<?php echo$genres['id'];?>"><button class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin menghapus')">Hapus</button></a></td>
 
       </tr>
     </tbody>
