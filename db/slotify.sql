@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2022 at 12:35 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.27
+-- Waktu pembuatan: 26 Mar 2022 pada 17.15
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `firstName`, `lastName`, `email`, `password`, `signUpDate`, `profilePic`, `descripsi`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `admin` (`id`, `username`, `firstName`, `lastName`, `email`, `passwo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `albums`
+-- Struktur dari tabel `albums`
 --
 
 CREATE TABLE `albums` (
@@ -57,72 +57,73 @@ CREATE TABLE `albums` (
   `title` varchar(250) NOT NULL,
   `artist` int(11) NOT NULL,
   `genre` int(11) NOT NULL,
-  `artworkPath` varchar(500) NOT NULL
+  `artworkPath` varchar(500) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `albums`
+-- Dumping data untuk tabel `albums`
 --
 
-INSERT INTO `albums` (`id`, `title`, `artist`, `genre`, `artworkPath`) VALUES
-(1, 'MOMOLAND X CHROME ALBUMS', 2, 4, 'assets/images/artwork/popdance.jpg'),
-(2, 'NEFFEX ALBUMS', 5, 1, 'assets/images/artwork/neffex.jpg'),
-(3, 'Bensound', 6, 4, 'assets/images/artwork/popdance.jpg');
+INSERT INTO `albums` (`id`, `title`, `artist`, `genre`, `artworkPath`, `date`) VALUES
+(1, 'MOMOLAND X CHROME ALBUMS', 2, 4, 'assets/images/artwork/popdance.jpg', '2022-03-26'),
+(2, 'NEFFEX ALBUMS', 5, 1, 'assets/images/artwork/neffex.jpg', '2022-03-20'),
+(3, 'Bensound', 6, 4, 'assets/images/artwork/popdance.jpg', '2022-03-20');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artists`
+-- Struktur dari tabel `artists`
 --
 
 CREATE TABLE `artists` (
   `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL
+  `name` varchar(250) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `artists`
+-- Dumping data untuk tabel `artists`
 --
 
-INSERT INTO `artists` (`id`, `name`) VALUES
-(1, 'Eminem'),
-(2, 'MOMOLAND X CHROMANCE'),
-(3, 'Alan Walker'),
-(4, 'JFLa'),
-(5, 'NEFFEX'),
-(6, 'Bensound');
+INSERT INTO `artists` (`id`, `name`, `date`) VALUES
+(1, 'Eminem', '0000-00-00'),
+(2, 'MOMOLAND X CHROMANCE', '0000-00-00'),
+(3, 'Alan Walker', '0000-00-00'),
+(4, 'JFLa', '0000-00-00'),
+(5, 'NEFFEX', '0000-00-00'),
+(6, 'Bensound', '0000-00-00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `genres`
+-- Struktur dari tabel `genres`
 --
 
 CREATE TABLE `genres` (
   `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL
+  `name` varchar(250) NOT NULL,
+  `datetime` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `genres`
+-- Dumping data untuk tabel `genres`
 --
 
-INSERT INTO `genres` (`id`, `name`) VALUES
-(1, 'Rap'),
-(2, 'Podcast'),
-(3, 'Jazz'),
-(4, 'Pop'),
-(5, 'R & B'),
-(6, 'K-Pop'),
-(7, 'Metal'),
-(8, 'Hip-Hop'),
-(9, 'Rock'),
-(11, 'Country');
+INSERT INTO `genres` (`id`, `name`, `datetime`) VALUES
+(1, 'Raps', '2022-03-25 03:40:39'),
+(2, 'Podcasts', '2022-03-25 03:41:02'),
+(3, 'Jazz', ''),
+(4, 'Pop', ''),
+(5, 'R & B', ''),
+(6, 'K-Pop', ''),
+(7, 'Metal', ''),
+(8, 'Hip-Hop', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `message`
+-- Struktur dari tabel `message`
 --
 
 CREATE TABLE `message` (
@@ -134,10 +135,18 @@ CREATE TABLE `message` (
   `jam` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `message`
+--
+
+INSERT INTO `message` (`id`, `nama`, `pesan`, `status`, `tanggal`, `jam`) VALUES
+(49, 10, 'Hell', 'y', '2022-03-24', '15:26:56'),
+(50, 10, 'Test', 'n', '2022-03-24', '15:26:56');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `playlists`
+-- Struktur dari tabel `playlists`
 --
 
 CREATE TABLE `playlists` (
@@ -148,7 +157,7 @@ CREATE TABLE `playlists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `playlists`
+-- Dumping data untuk tabel `playlists`
 --
 
 INSERT INTO `playlists` (`id`, `name`, `owner`, `dateCreated`) VALUES
@@ -162,7 +171,7 @@ INSERT INTO `playlists` (`id`, `name`, `owner`, `dateCreated`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `playlistsongs`
+-- Struktur dari tabel `playlistsongs`
 --
 
 CREATE TABLE `playlistsongs` (
@@ -173,7 +182,7 @@ CREATE TABLE `playlistsongs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `playlistsongs`
+-- Dumping data untuk tabel `playlistsongs`
 --
 
 INSERT INTO `playlistsongs` (`id`, `songId`, `playlistId`, `playlistOrder`) VALUES
@@ -185,7 +194,7 @@ INSERT INTO `playlistsongs` (`id`, `songId`, `playlistId`, `playlistOrder`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `songs`
+-- Struktur dari tabel `songs`
 --
 
 CREATE TABLE `songs` (
@@ -201,18 +210,10 @@ CREATE TABLE `songs` (
   `datetime` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `songs`
---
-
-INSERT INTO `songs` (`id`, `title`, `artist`, `album`, `genre`, `duration`, `path`, `albumOrder`, `plays`, `datetime`) VALUES
-(32, 'NEFFEX - How s It Supposed To Feel [Copyright Free]', 5, 2, 1, '03:05', 'assets/music/How s It Supposed To Feel.mp3', 0, 1, '2022-02-21'),
-(33, 'lala', 5, 2, 1, '03:05', 'assets/music/How s It Supposed To Feel.mp3', 0, 1, '2022-03-21');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -228,25 +229,25 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `firstName`, `lastName`, `email`, `password`, `signUpDate`, `profilePic`, `status`) VALUES
 (1, 'Lala', ' Lastri ', 'Lalass', 'Lala@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2021-02-12 00:00:00', 'assets/images/profile-pics/head_emerald.png', 'active'),
-(10, 'ryzen500', 'Achmad', 'Tsany', 'Ahmadtsani145@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2022-03-04 00:00:00', 'assets/images/profile-pics/head_emerald.png', 'Active');
+(10, 'ryzen500', 'Achmad   ', 'ryzen', 'ahmadtsani112@gmail.com', '202cb962ac59075b964b07152d234b70', '2022-03-04 00:00:00', 'assets/images/profile-pics/head_emerald.png', 'active');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `albums`
+-- Indeks untuk tabel `albums`
 --
 ALTER TABLE `albums`
   ADD PRIMARY KEY (`id`),
@@ -254,32 +255,32 @@ ALTER TABLE `albums`
   ADD KEY `genre` (`genre`);
 
 --
--- Indexes for table `artists`
+-- Indeks untuk tabel `artists`
 --
 ALTER TABLE `artists`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `genres`
+-- Indeks untuk tabel `genres`
 --
 ALTER TABLE `genres`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `message`
+-- Indeks untuk tabel `message`
 --
 ALTER TABLE `message`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nama` (`nama`);
 
 --
--- Indexes for table `playlists`
+-- Indeks untuk tabel `playlists`
 --
 ALTER TABLE `playlists`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `playlistsongs`
+-- Indeks untuk tabel `playlistsongs`
 --
 ALTER TABLE `playlistsongs`
   ADD PRIMARY KEY (`id`),
@@ -287,7 +288,7 @@ ALTER TABLE `playlistsongs`
   ADD KEY `playlistId` (`playlistId`);
 
 --
--- Indexes for table `songs`
+-- Indeks untuk tabel `songs`
 --
 ALTER TABLE `songs`
   ADD PRIMARY KEY (`id`),
@@ -296,95 +297,88 @@ ALTER TABLE `songs`
   ADD KEY `genre` (`genre`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `albums`
+-- AUTO_INCREMENT untuk tabel `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `artists`
---
-ALTER TABLE `artists`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `genres`
+-- AUTO_INCREMENT untuk tabel `artists`
+--
+ALTER TABLE `artists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `genres`
 --
 ALTER TABLE `genres`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `message`
+-- AUTO_INCREMENT untuk tabel `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `playlists`
+-- AUTO_INCREMENT untuk tabel `playlists`
 --
 ALTER TABLE `playlists`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `playlistsongs`
+-- AUTO_INCREMENT untuk tabel `playlistsongs`
 --
 ALTER TABLE `playlistsongs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT for table `songs`
+-- AUTO_INCREMENT untuk tabel `songs`
 --
 ALTER TABLE `songs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `albums`
+-- Ketidakleluasaan untuk tabel `albums`
 --
 ALTER TABLE `albums`
   ADD CONSTRAINT `albums_ibfk_1` FOREIGN KEY (`artist`) REFERENCES `artists` (`id`),
   ADD CONSTRAINT `albums_ibfk_2` FOREIGN KEY (`genre`) REFERENCES `genres` (`id`);
 
 --
--- Constraints for table `message`
+-- Ketidakleluasaan untuk tabel `message`
 --
 ALTER TABLE `message`
   ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`nama`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `playlistsongs`
---
-ALTER TABLE `playlistsongs`
-  ADD CONSTRAINT `playlistsongs_ibfk_1` FOREIGN KEY (`songId`) REFERENCES `songs` (`id`),
-  ADD CONSTRAINT `playlistsongs_ibfk_2` FOREIGN KEY (`playlistId`) REFERENCES `playlists` (`id`);
-
---
--- Constraints for table `songs`
+-- Ketidakleluasaan untuk tabel `songs`
 --
 ALTER TABLE `songs`
   ADD CONSTRAINT `songs_ibfk_1` FOREIGN KEY (`album`) REFERENCES `albums` (`id`),
