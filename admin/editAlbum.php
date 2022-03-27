@@ -243,6 +243,8 @@ else {
                           </select>                        </div>
                       </div>
                     </div>
+
+                    
                     <div class="row">
                       <div class="col-md-12">
                       <div class="mb-3">
@@ -252,6 +254,12 @@ else {
                       </div>
                     </div>
              
+                    <div class="form-check">
+  <input  type="checkbox" value="true" name="ubahfile" >
+  <label class="form-check-label" for="flexCheckChecked">
+    Ubah Gambar
+  </label>
+</div>
                     <div class="row">
                       <div class="col-md-12">
                         

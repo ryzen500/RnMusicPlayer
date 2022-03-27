@@ -19,6 +19,9 @@ if(isset($_POST['submit'])){
 	$file_tmp = $_FILES['path']['tmp_name'];	
 	$datetime= date('Y-m-d');
 
+	if (isset($_POST['ubahfile'])) {
+		# code...
+		
 		if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
 		    if($ukuran < 10044070){
                 $file_destination='../assets/music/'.$nama;			
@@ -42,5 +45,22 @@ if(isset($_POST['submit'])){
 	       }else{
 		echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
 	       }
+	}else{
+		$sql = "UPDATE `songs` SET title='$title', artist='$artist', album ='$album', genre='$genre', duration='$duration',  `datetime`='$datetime' WHERE id ='$id'";
+		$query2 =mysqli_query($con,$sql);
+			// $test =array($query2);
+			// $result = print_r($test);	
+		if($query2){
+			echo 'Data Music BERHASIL DI Edit';
+			echo "<script>alert('Music berhasil Di rubah');</script>";
+			echo "<script>window.history.back();</script>";
+
+		}else{
+			echo 'GAGAL MENGUPLOAD FILE';
+			var_dump($sql);
+		}
+
+	}
+
     }
 ?>

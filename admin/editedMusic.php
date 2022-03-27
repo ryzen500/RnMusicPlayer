@@ -270,6 +270,12 @@ else {
 </div>
                       </div>
                     </div>
+                    <div class="form-check">
+  <input  type="checkbox" value="true" name="ubahfile" >
+  <label class="form-check-label" for="flexCheckChecked">
+    Ubah File
+  </label>
+</div>
              
                     <div class="row">
                       <div class="col-md-12">

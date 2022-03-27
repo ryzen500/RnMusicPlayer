@@ -15,6 +15,8 @@ if(isset($_POST['submit'])){
 	$file_tmp = $_FILES['artworkPath']['tmp_name'];	
 	$datetime= date('Y-m-d');
 
+	if (isset($_POST['ubahfile'])) {
+		# code...
 		if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
 		    if($ukuran < 10044070){
                 $file_destination='../assets/images/'.$nama;			
@@ -25,7 +27,7 @@ if(isset($_POST['submit'])){
 				// $result = print_r($test);	
 			if($query2){
 				echo 'FILE BERHASIL DI UPLOAD';
-				echo "<script>alert('Music berhasil Di upload');</script>";
+				echo "<script>alert('Album berhasil Di upload');</script>";
 				echo "<script>window.history.back();</script>";
 
 			}else{
@@ -38,5 +40,23 @@ if(isset($_POST['submit'])){
 	       }else{
 		echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
 	       }
+	}else {
+		# code...
+		$sql = "UPDATE `albums` SET title='$title', artist='$artist', genre='$genre', `date`='$datetime' WHERE id ='$id'";
+		$query2 =mysqli_query($con,$sql);
+			// $test =array($query2);
+			// $result = print_r($test);	
+		if($query2){
+			echo 'FILE BERHASIL DI edit';
+			echo "<script>alert('Music berhasil Di upload');</script>";
+			echo "<script>window.history.back();</script>";
+
+		}else{
+			echo 'GAGAL MENGUPLOAD FILE';
+			var_dump($sql);
+		}
+
+	}
+
     }
 ?>
