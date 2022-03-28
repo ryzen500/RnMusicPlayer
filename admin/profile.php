@@ -65,7 +65,7 @@ else {
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item active   ">
+          <li class="nav-item active">
             <a class="nav-link" href="profile.php" style="cursor: pointer;">
               <i class="material-icons">person</i>
               <p>Your Profile</p>
@@ -80,7 +80,7 @@ else {
           <li class="nav-item ">
             <a class="nav-link" href="./typography.php">
               <i class="material-icons">library_books</i>
-              <p>Song Report</p>
+              <p> Song Report</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -125,7 +125,7 @@ else {
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
+            <!-- <form class="navbar-form">
               <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <button type="submit" class="btn btn-default btn-round btn-just-icon">
@@ -133,39 +133,30 @@ else {
                   <div class="ripple-container"></div>
                 </button>
               </div>
-            </form>
+            </form> -->
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)">
                   <i class="material-icons">dashboard</i>
                   <p class="d-lg-none d-md-block">
                     Stats
                   </p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
+                  <!-- <i class="material-icons">notifications</i> -->
+                  <i class="material-icons">person</i>
+
+                  <!-- <span class="notification">5</span> -->
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Another One</a>
+                <div class="dropdown-menu dropdown-menu-right ">
+                  <a class="dropdown-item" href="profile.php"><?php echo $username;?></a>
+                  <a class="dropdown-item" href="logout.php">LOGOUT</a>
                 </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
               </li>
             </ul>
           </div>
@@ -200,8 +191,8 @@ else {
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Company (disabled)</label>
-                          <input type="text" class="form-control" value="Admin" disabled>
+                          <label class="bmd-label-floating">Status (disabled)</label>
+                          <input type="text" class="form-control" value="active" disabled>
                         </div>
                       </div>
                       <div class="col-md-3">
@@ -231,6 +222,14 @@ else {
                         </div>
                       </div>
                     </div>
+
+
+                    <div class="form-check">
+  <input  type="checkbox" value="true" name="ubahpassword" >
+  <label class="form-check-label" for="flexCheckChecked">
+    Ubah Password
+  </label>
+</div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">

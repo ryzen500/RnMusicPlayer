@@ -214,6 +214,13 @@ while ($datas =mysqli_fetch_array($show)) {
                         </div>
                       </div>
                     </div>
+
+                    <div class="form-check">
+  <input  type="checkbox" value="true" name="ubahpassword" >
+  <label class="form-check-label" for="flexCheckChecked">
+    Ubah Password
+  </label>
+</div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
@@ -245,7 +252,7 @@ while ($datas =mysqli_fetch_array($show)) {
               <div class="card card-profile">
                 <div class="card-avatar">
                   <a href="#pablo">
-                  <img class="img" src="http://localhost/RnMusicPlayer2.0/admin/assets/images/profile-pics/head_emerald.png" />
+                  <img class="img" src="http://localhost/RnMusicPlayer/admin/assets/images/profile-pics/head_emerald.png" />
 
                 </a>
                 </div>
@@ -326,10 +333,10 @@ while ($datas =mysqli_fetch_array($show)) {
           </a>
         </li>
         <li class="button-container text-center">
-          <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
+          <!-- <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
           <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
           <br>
-          <br>
+          <br> -->
         </li>
       </ul>
     </div>

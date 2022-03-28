@@ -70,7 +70,7 @@ else {
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
+            <!-- <form class="navbar-form">
               <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <button type="submit" class="btn btn-default btn-round btn-just-icon">
@@ -78,16 +78,16 @@ else {
                   <div class="ripple-container"></div>
                 </button>
               </div>
-            </form>
+            </form> -->
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)">
                   <i class="material-icons">dashboard</i>
                   <p class="d-lg-none d-md-block">
                     Stats
                   </p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <!-- <i class="material-icons">notifications</i> -->
@@ -123,7 +123,7 @@ else {
         <div class="container-fluid">
           <div class="row">
 
-          <?php $query =mysqli_query($con, "SELECT s.plays,al.artist,al.artworkPath,al.title FROM `songs` as s INNER JOIN albums as al ON s.album = al.id ORDER BY s.albumOrder DESC LIMIT 3;");
+          <?php $query =mysqli_query($con, "SELECT s.plays,al.artist,al.artworkPath,al.title,s.datetime FROM `songs` as s INNER JOIN albums as al ON s.album = al.id ORDER BY s.albumOrder DESC LIMIT 3;");
 
 $nomer = 1;
 while ($albums = mysqli_fetch_array($query)) {
@@ -137,18 +137,13 @@ while ($albums = mysqli_fetch_array($query)) {
               <div class="card card-chart">
                 <div class="card-header">
                   <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
-               <img src="<?php echo $albums['artworkPath']; ?>" alt="" class="card-img-top">
+               <img src="../<?php echo $albums['artworkPath']; ?>" alt="" class="card-img-top">
                 </div>
                 <div class="card-body">
                   <h4 class="card-title"><?php echo $albums['title']; ?></h4>
-                  <p class="card-category">Last Campaign Performance</p>
+                  <p class="card-category"><?php echo $albums['datetime'];?></p>
                 </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
+                        </div>
             </div>
             
             <?php } ?>
