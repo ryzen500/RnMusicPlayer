@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
 
 			}else{
 				echo 'GAGAL MENGUPLOAD FILE';
-				var_dump($sql);
+				// var_dump($sql);
 			}
 		    }else{
 			echo 'UKURAN FILE TERLALU BESAR';
