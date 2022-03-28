@@ -258,7 +258,7 @@ while ($albums = mysqli_fetch_array($query)) {
                           <!-- # code... -->
                           <td><a href="update/updateActive.php?id=<?php echo $datas['id']; ?>"><button class="btn btn-warning" onclick="return confirm('Anda Yakin ingin Merubah Status');"><?php echo $datas['status']; ?></button></a></td>
 
-                        <?php }elseif ($datas['status'] == "Active") { ?>
+                        <?php }elseif ($datas['status'] == "active") { ?>
                           <!-- # code... -->
                           <td><a href="update/updateInActive.php?id=<?php echo $datas['id']; ?>"><button class="btn btn-primary" onclick="return confirm('Anda Yakin ingin Merubah Status');"><?php echo $datas['status']; ?></button></a></td>
 
@@ -314,16 +314,18 @@ while ($albums = mysqli_fetch_array($query)) {
                             <td class="td-actions text-right">
 
                             <?php if ($datas['status'] == 'y') { ?>
-                              <button onclick="return alert('TODO')" class="btn btn-primary">
-                                  Edit
+                              <a href="processingUpdateInactive.php?id=<?php echo $datas['id']; ?>">
+                              <button onclick="return confirm('Anda Yakin Ingin Merubah ??')" class="btn btn-primary">
+                                  inActive
                               </button>
+                              </a>
                               <br>
                               <?php }else{?>
-
-                              <button  class="btn btn-danger" onclick="return alert('TODO')">
-                                  Edit
+                              <a href="processingUpdateStatus.php?id=<?php echo $datas['id']; ?>">
+                              <button  class="btn btn-primary" onclick="return confirm('Anda Yakin Ingin Merubah ??')">
+                                  Active
                               </button>
-
+                              </a>
                               <?php }?>
                               
                               <button  onclick="return alert('TODO')" class="btn btn-danger">

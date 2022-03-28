@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
 	$lastName =$_POST['lastName'];
     $password =md5($_POST['password']);
 	$profilePic = 'assets/images/profile-pics/head_emerald.png';
-	$signUpDate = date('Y-m-d H:i:s');
+	$signUpDate = date('Y-m-d');
 	
 			$sql = "UPDATE `users` SET username='$username', firstName='$firstName', lastName = '$lastName',  email='$email', `password`='$password', status='$status' WHERE id ='$id'";
 			$query2 =mysqli_query($con,$sql);

@@ -182,7 +182,7 @@ else {
                   <p class="card-category">Add User</p>
                 </div>
                 <div class="card-body">
-                  <form action="proCessingUser.php" method="POST">
+                  <form action="proCessingCreate.php" method="POST" enc>
 
                     <div class="row">
                       <div class="col-md-5">
@@ -236,17 +236,6 @@ else {
                       </div>
                     </div>
               -->
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <!-- <div class="form-group">
-                            <label class="bmd-label-floating">description About me</label>
-                            <textarea class="form-control" rows="5"><?php echo $datas['descripsi']; ?></textarea>
-                          </div> -->
-                        </div>
-                      </div>
-                    </div>
                     <button type="submit"  name="submit" class="btn btn-primary pull-right">Simpan</button>
                     <div class="clearfix"></div>
                   </form>
