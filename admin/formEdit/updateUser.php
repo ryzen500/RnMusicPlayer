@@ -1,4 +1,30 @@
 <?php
+include("../../includes/config.php");
+include("../../includes/classes/adminAccount.php"); 
+include("../../includes/classes/Artist.php"); 
+include("../../includes/classes/Album.php");
+include("../../includes/classes/Song.php");
+include("../../includes/classes/Playlist.php");
+
+
+// For call it off  error
+error_reporting(0);
+//session_destroy(); LOGOUT
+// Session 
+
+session_start();
+if(isset($_SESSION['adminLoggedIn'])) {
+	$adminLoggedIn = new adminAccount($con,$_SESSION['adminLoggedIn']);
+
+	$username= $adminLoggedIn->getUsername();
+	echo "<script>adminLoggedIn='$username';</script>";
+
+}
+else {
+	header("Location: register.php");
+}
+?>
+<?php
 include("../config.php");
 // For call it off  error
 error_reporting(0);
@@ -48,7 +74,7 @@ session_start();
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item active   ">
+          <li class="nav-item ">
             <a class="nav-link" href="profile.php" style="cursor: pointer;">
               <i class="material-icons">person</i>
               <p>Your Profile</p>
@@ -61,27 +87,27 @@ session_start();
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./Song Report.html">
+            <a class="nav-link" href="./typography.php">
               <i class="material-icons">library_books</i>
-              <p>Song Report</p>
+              <p> Song Report</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+            <a class="nav-link" href="./albumsReport.php">
+              <i class="material-icons">library_books</i>
+              <p>Album Report</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
+            <a class="nav-link" href="./report-artist.php">
+              <i class="material-icons">library_books</i>
+              <p> Artist Report</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+            <a class="nav-link" href="./report-user.php">
+              <i class="material-icons">library_books</i>
+              <p>User Report</p>
             </a>
           </li>
           <!-- <li class="nav-item active-pro ">

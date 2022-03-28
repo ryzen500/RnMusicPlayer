@@ -181,7 +181,7 @@ else {
                   <!-- <p class="card-category">Complete your profile</p> -->
                 </div>
                 <div class="card-body">
-                  <form action="processingAlbum.php" method="POST"  enctype="multipart/form-data">
+                  <form action="processingAlbumCreate.php" method="POST"  enctype="multipart/form-data">
                     <?php
                      $show =mysqli_query($con, "SELECT * FROM artists");
                      $albums =mysqli_query($con, "SELECT * FROM albums");
