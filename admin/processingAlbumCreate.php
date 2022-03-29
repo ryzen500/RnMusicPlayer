@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 		    if($ukuran < 10044070){
                 $file_destination='../assets/images/'.$nama;			
 			move_uploaded_file($file_tmp,$file_destination);
-            $sql = "UPDATE `albums` SET title='$title', artist='$artist', genre='$genre', `artworkPath`='assets/images/artwork/$nama',  `date`='$datetime'";
+            $sql = "INSERT INTO albums (title,artist,genre,artWorkPath,`date`) VALUES ('$title','$artist','$genre','assets/images/artwork/$nama','$datetime')";
 			$query2 =mysqli_query($con,$sql);
 				// $test =array($query2);
 				// $result = print_r($test);	

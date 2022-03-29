@@ -65,6 +65,11 @@
 			<div class="hasAccountText">
 			<span id="hideLogin">Dont have an account yet ?Sign up here.</span>
 			</div>
+
+			<br>
+			<div class="hasAccountText">
+			<a href="forgotpassword.php" id="hideLogin" style="cursor:pointer;">Forgot Password ?.</a>
+			</div>
 		</form>
 
 

@@ -249,7 +249,7 @@ while ($albums = mysqli_fetch_array($query)) {
                         <td><?php echo $nomor++; ?></td>
                         <td><?php echo $datas['firstName']; ?></td>
                         <td><?php echo $datas['signUpDate']; ?></td>
-                        <?php if ($datas['status'] == "inActive") { ?>
+                        <?php if ($datas['status'] == "inactive") { ?>
                           <!-- # code... -->
                           <td><a href="update/updateActive.php?id=<?php echo $datas['id']; ?>"><button class="btn btn-warning" onclick="return confirm('Anda Yakin ingin Merubah Status');"><?php echo $datas['status']; ?></button></a></td>
 
