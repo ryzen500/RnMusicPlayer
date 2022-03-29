@@ -28,7 +28,7 @@
 			}
 			else {
 				array_push($this->errorArray, Constants::$loginFailed);
-				var_dump($query,$un,$pw);
+				// var_dump($query,$un,$pw);
 				return false;
 			}
 

@@ -29,6 +29,17 @@
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+.button-chat {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+
+}
 
 .jwpopup-head {
 	font-size: 11px;
@@ -453,7 +464,8 @@ if ($qshoutbox > 0  || $qshoutbox == 0){
 <label>Comment</label>
   <textarea name="pesan" class="text valid" type="text" placeholder="Masukkan Pesan" onClick="addSmiley('')"></textarea>
 </div>
-<input class="shout" type=submit name=submit value=Kirim><input class=shout type=reset name=reset value=Reset>
+<input class="button-chat shout" type=submit name=submit value=Kirim>
+<input class="button-chat shout" type=reset name=reset value=Reset>
 </form>
 
 </div>
