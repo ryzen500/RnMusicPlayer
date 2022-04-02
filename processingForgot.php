@@ -12,8 +12,8 @@ if (isset($_POST['submit'])) {
         $sql = mysqli_query($con,$query);
         if ($sql) {
             # code...
-            echo "suksess";
-            var_dump($query);
+            echo"<script>alert('Permintaan Berhasil DIkirim harap tunggu selama 24 Jam ');document.location.href='index.php'</script>";	
+
 
         }
         else{
